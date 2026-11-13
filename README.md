@@ -1,4 +1,4 @@
-# Gen Z Lab 9th Crew Teaser Video
+# Gen Z Lab. 9th Teaser
 
 젠지랩(Gen Z Lab) 9기 크루 모집·젠지랩 소개 영상을 만든 과정과 규칙을 정리한 문서입니다.
 영상은 공식 행사에서 상영하며, **Claude와 Higgsfield MCP로 만들었습니다**(아래 "만든 방법" 참고). 이미지·영상·목소리·효과음은 Higgsfield의 AI 모델로 만들고, 편집은 Python + ffmpeg 스크립트로 합칩니다.
@@ -19,10 +19,10 @@ https://github.com/user-attachments/assets/06e3375a-22f2-4e80-8917-b0151bd23e92
 
 | 파일 | 해상도 | 자막 |
 |---|---|---|
-| [`videos/GenZLab_9th_Teaser_1080p_subtitled.mp4`](videos/GenZLab_9th_Teaser_1080p_subtitled.mp4) | 1920×1080 | 있음 |
-| [`videos/GenZLab_9th_Teaser_1080p_no_subtitles.mp4`](videos/GenZLab_9th_Teaser_1080p_no_subtitles.mp4) | 1920×1080 | 없음 |
-| [`videos/GenZLab_9th_Teaser_4K_subtitled.mp4`](videos/GenZLab_9th_Teaser_4K_subtitled.mp4) | 3840×2160 | 있음 |
-| [`videos/GenZLab_9th_Teaser_4K_no_subtitles.mp4`](videos/GenZLab_9th_Teaser_4K_no_subtitles.mp4) | 3840×2160 | 없음 |
+| [Gen Z Lab. 9th Teaser - 1080p.mp4](videos/Gen%20Z%20Lab.%209th%20Teaser%20-%201080p.mp4) | 1920×1080 | 있음 |
+| [Gen Z Lab. 9th Teaser - 1080p (no subtitles).mp4](videos/Gen%20Z%20Lab.%209th%20Teaser%20-%201080p%20%28no%20subtitles%29.mp4) | 1920×1080 | 없음 |
+| [Gen Z Lab. 9th Teaser - 4K.mp4](videos/Gen%20Z%20Lab.%209th%20Teaser%20-%204K.mp4) | 3840×2160 | 있음 |
+| [Gen Z Lab. 9th Teaser - 4K (no subtitles).mp4](videos/Gen%20Z%20Lab.%209th%20Teaser%20-%204K%20%28no%20subtitles%29.mp4) | 3840×2160 | 없음 |
 
 모두 70.7초, 24fps, 1,696프레임, 같은 소리(배경음악·효과음·글리밍 목소리)입니다.
 
