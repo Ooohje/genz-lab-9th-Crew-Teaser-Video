@@ -11,13 +11,9 @@
 
 ## 최종 영상 (철문판, 2026-11-13)
 
-[![철문판 영상 보기 (1080p, 자막 포함)](videos/poster.jpg)](videos/GenZLab_9th_Teaser_1080p_subtitled.mp4)
-
-
 https://github.com/user-attachments/assets/06e3375a-22f2-4e80-8917-b0151bd23e92
 
-
-▶ 위 그림을 누르면 철문판 1080p 영상(자막 포함)으로 갑니다.
+▶ 위 영상은 철문판 1080p(자막 포함)입니다. 4K판과 자막 없는 판은 아래 표에서 받을 수 있습니다.
 
 `videos/` 폴더에 있습니다. 파일이 커서 Git LFS로 올렸습니다(저장소를 받을 때 `git lfs install` 필요).
 
