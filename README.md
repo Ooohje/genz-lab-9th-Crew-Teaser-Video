@@ -11,12 +11,7 @@
 
 ## 최종 영상 (철문판, 2026-11-13)
 
-<details open>
-<summary><b>Gen Z Lab. 9th Teaser</b></summary>
-
-<video src="https://github.com/user-attachments/assets/06e3375a-22f2-4e80-8917-b0151bd23e92" controls muted width="100%"></video>
-
-</details>
+https://github.com/user-attachments/assets/06e3375a-22f2-4e80-8917-b0151bd23e92
 
 ▶ 위 영상은 철문판 1080p(자막 포함)입니다. 4K판과 자막 없는 판은 아래 표에서 받을 수 있습니다.
 
