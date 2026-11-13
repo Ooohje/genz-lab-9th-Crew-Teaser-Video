@@ -1,7 +1,7 @@
 # Gen Z Lab 9th Crew Teaser Video
 
 젠지랩(Gen Z Lab) 9기 크루 모집·젠지랩 소개 영상을 만든 과정과 규칙을 정리한 문서입니다.
-영상은 공식 행사에서 상영하며, 이미지·영상·목소리·효과음은 Higgsfield의 AI 모델로 만들고 편집은 Python + ffmpeg 스크립트로 합칩니다.
+영상은 공식 행사에서 상영하며, **Claude와 Higgsfield MCP로 만들었습니다**(아래 "만든 방법" 참고). 이미지·영상·목소리·효과음은 Higgsfield의 AI 모델로 만들고, 편집은 Python + ffmpeg 스크립트로 합칩니다.
 
 - **화면**: 16:9 화면 안에 21:9 그림, 위아래 검은 여백, 자막은 아래 여백 안
 - **해상도**: 1080p(1920×1080)와 4K(3840×2160) 두 가지
@@ -25,6 +25,36 @@
 | [`videos/GenZLab_9th_Teaser_4K_no_subtitles.mp4`](videos/GenZLab_9th_Teaser_4K_no_subtitles.mp4) | 3840×2160 | 없음 |
 
 모두 70.7초, 24fps, 1,696프레임, 같은 소리(배경음악·효과음·글리밍 목소리)입니다.
+
+## 만든 방법: Claude + Higgsfield MCP
+
+이 영상은 **Claude**(Anthropic, Claude Code 데스크톱 앱)와 대화하며 만들었습니다. Claude가 **Higgsfield MCP**(Model Context Protocol 서버)로 Higgsfield의 AI 모델을 직접 호출해 이미지·영상·목소리·효과음을 만들고, 로컬에서 Python + ffmpeg 스크립트로 검증·편집까지 했습니다. 사람은 방향을 정하고 결과를 보며 피드백을 줬습니다.
+
+```
+사람(기획·피드백)
+   │  "이 컷 눈이 부자연스러워", "열쇠 질감을 마지막 컷처럼" …
+   ▼
+Claude (Claude Code)
+   ├─ Higgsfield MCP ─▶ GPT Image 2.6 (컷 이미지·편집)
+   │                  ├▶ Seedance 2.0 Mini (영상, 시작·끝 이미지·참고 영상)
+   │                  ├▶ Seed Audio (글리밍 목소리)
+   │                  ├▶ Mirelo (효과음)
+   │                  └▶ bytedance upscale (4K)
+   └─ 로컬 Python + ffmpeg ─▶ 프레임 검증, 색 맞춤, 자막·배경음악·편집
+```
+
+**Higgsfield MCP로 한 일**
+- `generate_image`: 컷 시작 이미지 만들기와 고치기(앞 결과를 참고로 넣고 "이것만 바꿔라")
+- `generate_video`: 시작·끝 이미지(`start_image`, `end_image`), 대사 음성(`audio_references`), 동작 참고 영상(`video_references`)을 넣어 영상 만들기. 한 번에 여러 개(`count`)를 만들어 가장 나은 것을 고름
+- `generate_audio`: 대사 한 줄씩 목소리 만들기
+- `upscale_video`: 완성본 그림을 4K로 업스케일
+- `media_upload` → `media_confirm`: 로컬에서 고친 이미지·영상을 올려 다음 생성의 입력으로 사용
+- 생성 전에 `get_cost`로 비용을 먼저 확인하고, 크레딧을 쓰기 전에 사람에게 승인을 받음
+
+**Claude가 로컬에서 한 일**
+- **검증**: 프레임을 하나하나 뽑아 눈 감음·번짐, 열쇠 방향(이빨 왼쪽)·모양·길이, 글리밍 색(밝기·채도·분홍/보라/파랑/청록 비율), 프레임 사이 튐, 첫 프레임과 시작 이미지의 차이를 숫자와 확대 그림으로 확인. 통과하지 못한 결과는 쓰지 않고 다시 만듦
+- **보정**: 컷마다 글리밍 색을 3D LUT로 맞추기, 틀린 글자 덮기, 손잡이 위치 옮기기 등 작은 수정(크레딧 0)
+- **편집**: 컷 자르기·이어 붙이기, 자막(ASS), 배경음악 합성, 효과음 배치, 1080p·4K 합성
 
 ---
 
